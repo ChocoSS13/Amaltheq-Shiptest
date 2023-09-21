@@ -122,8 +122,8 @@
 	name = "WT-550 Auto Rifle Exotic Ammo Crate"
 	desc = "Содержит один магазин бронебойных и один магазин зажигательных боеприпасов для автоматической винтовки WT550. К сожалению, наш производитель снял с производства пули с урановым наконечником."
 	cost = 2500
-	contains = list(/obj/item/ammo_box/magazine/wt550m9/wtap,
-					/obj/item/ammo_box/magazine/wt550m9/wtic)
+	contains = list(/obj/item/ammo_box/magazine/wt550m9/ap,
+					/obj/item/ammo_box/magazine/wt550m9/inc)
 
 /*
 		Rifle ammo

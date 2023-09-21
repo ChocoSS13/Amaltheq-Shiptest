@@ -56,7 +56,7 @@
 	if(!over_obj || !scanner.is_operational || scanner_port?.current_ship != servant)
 		return
 	num_current++
-
+/* commented out until ion storms aren't literal torture
 /datum/mission/research/ion
 	name = "Ion storm research mission"
 	desc = "Исследовательскому отделу нужны данные о ионных бурях в системе для текущего исследования. \
@@ -64,7 +64,7 @@
 			Для сбора данных сенсор должен быть подключен к эл. сети. "
 	value = 3500
 	objective_type = /datum/overmap/event/emp
-
+*/
 /datum/mission/research/meteor
 	name = "Asteroid field research mission"
 	desc = "Нам нужны данные о поведении астероидных полей в системе для текущего исследования. \
