@@ -1,1 +1,4 @@
 sound/ambience/pirates.ogg
+sound/ambience/discombobulate.ogg
+sound/ambience/lesnik.ogg
+sound/ambience/iceandfire.ogg
