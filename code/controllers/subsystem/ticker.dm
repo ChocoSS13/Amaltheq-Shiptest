@@ -154,7 +154,7 @@ SUBSYSTEM_DEF(ticker)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
 			to_chat(world, "<span class='boldnotice'>Welcome to [station_name()]!</span>")
-			send2chat("@ERP New round starting!", CONFIG_GET(string/chat_announce_new_game))
+			send2chat("<@&946411318427140187> New round starting!", CONFIG_GET(string/chat_announce_new_game))
 			SSredbot.send_discord_message("ooc", "**A new round is beginning.**")
 			current_state = GAME_STATE_PREGAME
 			//Everyone who wants to be an observer is now spawned
