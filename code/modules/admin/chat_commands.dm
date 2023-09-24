@@ -57,7 +57,7 @@
 	status += "\nPlayers: [GLOB.clients.len] (Active: [get_active_player_count(0,1,0)]). Mode: [SSticker.mode ? SSticker.mode.name : "Not started"]."
 	for(var/c in GLOB.clients)
 		var/client/C = c
-		status += "\n [c.ckey]"
+		status += "\n [C.ckey]"
 	return status
 
 /datum/tgs_chat_command/tgscheck
