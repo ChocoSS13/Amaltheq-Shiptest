@@ -36,8 +36,22 @@
 	last_tgs_status = rtod
 	var/list/adm = get_admin_counts()
 	var/list/allmins = adm["total"]
-	var/status = "Admins: [allmins.len] (Active: [english_list(adm["present"])] AFK: [english_list(adm["afk"])] Stealth: [english_list(adm["stealth"])] Skipped: [english_list(adm["noflags"])]). "
-	status += "Players: [GLOB.clients.len] (Active: [get_active_player_count(0,1,0)]). Mode: [SSticker.mode ? SSticker.mode.name : "Not started"]."
+	var/status = "Администраторов: [allmins.len] (Активных: [english_list(adm["present"])] AFK: [english_list(adm["afk"])] Stealth: [english_list(adm["stealth"])] Пропущено: [english_list(adm["noflags"])]). "
+	status += "Игроков: [GLOB.clients.len] (Активных: [get_active_player_count(0,1,0)]). Режим: [SSticker.mode ? SSticker.mode.name : "Не начат."]."
+	return status
+
+/datum/tgs_chat_command/tgswho
+	name = "who"
+	help_text = "Возвращает количество игроков, и все ckey игроков на сервере."
+	admin_only = TRUE
+	var/last_tgs_status = 0
+
+/datum/tgs_chat_command/tgswho/Run(datum/tgs_chat_user/sender, params)
+	var/rtod = REALTIMEOFDAY
+	if(rtod - last_tgs_status < TGS_STATUS_THROTTLE)
+		return
+	last_tgs_status = rtod
+	status += "Игроков: [GLOB.clients.len]"
 	for(var/c in GLOB.clients)
 		var/client/C = c
 		status += "\n[C.key]"
@@ -45,7 +59,7 @@
 
 /datum/tgs_chat_command/tgscheck
 	name = "check"
-	help_text = "Gets the playercount, gamemode, and address of the server"
+	help_text = "Получает данные о количестве игроков, режиме игры и адресе сервера"
 	var/last_tgs_check = 0
 
 /datum/tgs_chat_command/tgscheck/Run(datum/tgs_chat_user/sender, params)
@@ -54,7 +68,7 @@
 		return
 	last_tgs_check = rtod
 	var/server = CONFIG_GET(string/server)
-	return "[GLOB.round_id ? "Round #[GLOB.round_id]: " : ""][GLOB.clients.len] players, Mode: [GLOB.master_mode]; Round [SSticker.HasRoundStarted() ? (SSticker.IsRoundInProgress() ? "Active" : "Finishing") : "Starting"] -- [server ? server : "[world.internet_address]:[world.port]"]"
+	return "[GLOB.round_id ? "Раунд #[GLOB.round_id]: " : ""][GLOB.clients.len] игроков, Режим: [GLOB.master_mode]; Раунд [SSticker.HasRoundStarted() ? (SSticker.IsRoundInProgress() ? "В процессе" : "Завершение") : "Начало"] -- [server ? server : "[world.internet_address]:[world.port]"]"
 
 /datum/tgs_chat_command/ahelp
 	name = "ahelp"
@@ -93,7 +107,7 @@
 
 /datum/tgs_chat_command/adminwho
 	name = "adminwho"
-	help_text = "Lists administrators currently on the server"
+	help_text = "Перечисляет администраторов, находящихся в данный момент на сервере."
 	admin_only = TRUE
 
 /datum/tgs_chat_command/adminwho/Run(datum/tgs_chat_user/sender, params)
