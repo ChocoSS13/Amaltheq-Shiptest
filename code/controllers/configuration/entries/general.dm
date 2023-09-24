@@ -237,13 +237,13 @@
 	config_entry_value = "https://shiptest.net/wiki/"
 
 /datum/config_entry/string/forumurl
-	config_entry_value = "https://shiptest.net/discord"
+	config_entry_value = "https://discord.gg/TXZHa38kbd"
 
 /datum/config_entry/string/rulesurl
 	config_entry_value = "https://shiptest.net/wiki/Rules"
 
 /datum/config_entry/string/githuburl
-	config_entry_value = "https://github.com/shiptest-ss13/Shiptest"
+	config_entry_value = "https://github.com/ChocoSS13/Amaltheq-Shiptest"
 
 /datum/config_entry/string/discordurl
 	config_entry_value = "https://shiptest.net/discord"
