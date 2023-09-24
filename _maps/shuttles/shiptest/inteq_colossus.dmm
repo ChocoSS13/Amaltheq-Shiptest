@@ -57,11 +57,21 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
-/obj/machinery/advanced_airlock_controller{
-	pixel_x = 25;
-	req_access = null
-	},
 /obj/item/radio/intercom/directional/west,
+/obj/structure/closet/wall{
+	dir = 8;
+	icon_state = "emergency_wall";
+	pixel_x = 28
+	},
+/obj/item/tank/internals/plasmaman/full,
+/obj/item/tank/internals/plasmaman/full,
+/obj/item/tank/internals/oxygen,
+/obj/item/tank/internals/oxygen,
+/obj/item/tank/internals/oxygen,
+/obj/item/tank/internals/oxygen,
+/obj/item/tank/internals/oxygen,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/hallway/port)
 "bn" = (
@@ -1770,18 +1780,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/light/small/directional/west,
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/layer4,
-/obj/item/tank/internals/plasmaman/full,
-/obj/item/tank/internals/plasmaman/full,
-/obj/item/tank/internals/oxygen,
-/obj/item/tank/internals/oxygen,
-/obj/item/tank/internals/oxygen,
-/obj/item/tank/internals/oxygen,
-/obj/item/tank/internals/oxygen,
-/obj/structure/closet/wall{
-	dir = 8;
-	icon_state = "emergency_wall";
-	pixel_x = 28
-	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/hallway/port)
 "tI" = (
@@ -3093,11 +3091,16 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/clothing/suit/space/inteq,
 /obj/item/clothing/head/helmet/space/inteq,
-/obj/machinery/suit_storage_unit/inherit,
+/obj/machinery/suit_storage_unit/inherit{
+	density = 0
+	},
 /obj/machinery/light_switch{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = 11
+	},
+/obj/machinery/advanced_airlock_controller{
+	pixel_y = 28
 	},
 /turf/open/floor/plasteel/tech,
 /area/ship/hallway/port)
@@ -5200,7 +5203,7 @@ Oa
 "}
 (28,1,1) = {"
 Yy
-Ou
+XJ
 hO
 nm
 aZ
