@@ -40,6 +40,26 @@
 	status += "Players: [GLOB.clients.len] (Active: [get_active_player_count(0,1,0)]). Mode: [SSticker.mode ? SSticker.mode.name : "Not started"]."
 	return status
 
+/datum/tgs_chat_command/tgsstatusplayers
+	name = "test"
+	help_text = "Gets the admincount, playercount, gamemode, and true game mode of the server"
+	admin_only = TRUE
+	var/last_tgs_status = 0
+
+/datum/tgs_chat_command/tgsstatusplayers/Run(datum/tgs_chat_user/sender, params)
+	var/rtod = REALTIMEOFDAY
+	if(rtod - last_tgs_status < TGS_STATUS_THROTTLE)
+		return
+	last_tgs_status = rtod
+	var/list/adm = get_admin_counts()
+	var/list/allmins = adm["total"]
+	var/status = "Admins: [allmins.len] (Active: [english_list(adm["present"])] AFK: [english_list(adm["afk"])] Stealth: [english_list(adm["stealth"])] Skipped: [english_list(adm["noflags"])]). "
+	status += "\nPlayers: [GLOB.clients.len] (Active: [get_active_player_count(0,1,0)]). Mode: [SSticker.mode ? SSticker.mode.name : "Not started"]."
+	for(var/c in GLOB.clients)
+		var/client/C = c
+		status += "\n [c.ckey]"
+	return status
+
 /datum/tgs_chat_command/tgscheck
 	name = "check"
 	help_text = "Gets the playercount, gamemode, and address of the server"
