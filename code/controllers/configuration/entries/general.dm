@@ -246,7 +246,7 @@
 	config_entry_value = "https://github.com/ChocoSS13/Amaltheq-Shiptest"
 
 /datum/config_entry/string/discordurl
-	config_entry_value = "https://shiptest.net/discord"
+	config_entry_value = "https://discord.gg/TXZHa38kbd"
 
 /datum/config_entry/string/mapviewerurl
 	config_entry_value = "https://shiptest.net/map"
