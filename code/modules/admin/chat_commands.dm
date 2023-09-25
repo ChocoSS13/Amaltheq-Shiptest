@@ -51,7 +51,7 @@
 	if(rtod - last_tgs_status < TGS_STATUS_THROTTLE)
 		return
 	last_tgs_status = rtod
-	status += "Игроков: [GLOB.clients.len]"
+	var/status = "Игроков: [GLOB.clients.len]"
 	for(var/c in GLOB.clients)
 		var/client/C = c
 		status += "\n[C.key]"
