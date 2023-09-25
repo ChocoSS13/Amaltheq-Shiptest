@@ -52,9 +52,11 @@
 		return
 	last_tgs_status = rtod
 	var/status = "Игроков: [GLOB.clients.len]"
+	status += "\n```"
 	for(var/c in GLOB.clients)
 		var/client/C = c
 		status += "\n[C.key]"
+	status += "\n```"
 	return status
 
 /datum/tgs_chat_command/tgscheck
